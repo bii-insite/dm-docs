@@ -71,9 +71,10 @@ div #header {
 Here you can find links to all documentation for INSITE's data management practices. If you have any questions, please contact INSITE data manager Nick Hoffman at nicholashoffman@ucmerced.edu.
 
 <h1>Data Management Guides</h1>  
-    
-* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/insiteServerGuidelines.html">Server Guidelines</a>
-* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/readmeGuide.html">README Guide</a>
-* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/rsyncGuide.html">rsync Guide</a>
-* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/codingBestPractices.html">Coding Best Practices</a>
+
+* [Server Guidelines](insiteServerGuidelines.html)
+* [README Guide](readmeGuide.html)
+* [rsync Guide](rsyncGuide.html)
+* [lftp Guide](lftpGuide.html)
+* [Coding Best Practices](codingBestPractices.html)
 </div>
