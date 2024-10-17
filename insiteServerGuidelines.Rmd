@@ -1,0 +1,166 @@
+---
+title: "INSITE Server Guidelines"
+author: "Nick Hoffman"
+date: "September 2024"
+output:
+  html_document:
+    df_print: paged
+    highlight: pygment
+    keep_md: no
+    toc: true
+    number_sections: true
+    toc_depth: 1
+    toc_float: true
+    theme: journal
+editor_options:
+    chunk_output_type: inline
+---
+
+<style type="text/css">
+h2, h3, h4, h5, h6 {
+  counter-reset: section;
+}
+p {
+  font-size:18px;
+}
+
+ul {
+  font-size:18px;
+}
+
+li {
+  font-size:18px;
+}
+table {
+   padding: 0;border-collapse: collapse;
+   layout: fixed;
+   width: 90%; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+.html-widget {
+    margin: auto;
+}
+</style>
+
+---
+
+```{r, results='asis', echo = F}
+toc_depth <- rmarkdown::metadata$output$html_document$toc_depth
+sel <- paste0("h",(toc_depth+1):10, collapse = " > span, ")
+cat(paste0("<style>",
+           sel, 
+           " > .header-section-number { display: none; } </style>"))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE,comment=NA)
+```
+
+# Introduction
+
+This is a guide to uploading files to the INSITE server.
+
+# What do I upload to the server?
+
+* Raw data
+* Detailed materials and methods
+* Final datasets
+* Unpublished data at end of appointment
+* Manuscripts once ready for submission
+
+# How do I upload to the server?
+
+## Through GUI
+
+Log into website through this <a href="https://insite-bii.quickconnect.to" target="_blank">URL</a> and supply your credentials. 
+
+1. Click on “File Station” icon.
+2. Navigate to “insiteData” folder. Do not use home folder.
+3. Navigate to proper subfolder.
+4. Read: right click on file of interest and select download.
+5. Write: Upload (skip or overwrite, whichever is appropriate) to upload data. Make sure to <b>include README file</b> documenting metadata.
+
+## Through rsync
+
+If you have large files, it may be easier to upload your data through rsync. Please consult <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/rsyncGuide.html">this guide</a> on using rsync for the INSITE server.
+
+# When do I upload to the server?
+
+Upload your data regularly. Do not wait for your final product to be ready to upload everything. If you are producing raw data, you should be uploading it. Uploading to the server increases the security of your hard-won data. If something happens to your local copy of your data, you can retrieve it from the backup copy on the server. Record the information as soon as you can, while it is still fresh in your memory. If you have any questions about getting started, please reach out to INSITE data manager Nick Hoffman.
+
+## Before I upload
+
+Before you upload your data, make sure that 
+
+1. You know the appropriate folder to which you should upload your data (see next section),
+2. You have formatted your files in a way that conforms to INSITE guidelines (see section below), and
+3. You have written a README which conforms to <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/readmeGuide.html">INSITE README guidelines</a>.
+
+# Where in the server do I upload?
+
+The shared data folder on the INSITE server is insiteData. Anything you upload to the server must be in a subfolder of the insiteData directory. In general, data uploads should follow this directory structure. (Note that anything in brackets needs to be customized to your particular use case.)
+
+```{r directory-structure,include=TRUE,echo=FALSE}
+cat(paste("insiteData / data / [organism] / [theme] / [datatype] / [experiment#]"))
+
+```
+
+In this template, [experiment#] is an arbitrary index which allows for multiple of the same experiment type to be saved. <b>Information on what distinguishes different experiment numbers from each other must be included in your README.</b> 
+
+So, if you've produced a transcriptome of an aster leafhopper population under heat stress, you might put your fastq files in the following subfolder:
+
+```{r directory-structure2,include=TRUE,echo=FALSE}
+cat(paste("insiteData / data / leafhoppers / theme1 / transcriptome / exp3 "))
+
+```
+
+
+# How do I name my files?
+
+Data files should be named as follows:
+
+```{r directory-structure3,include=TRUE,echo=FALSE}
+cat(paste("[lastName]_[dateCreated]_[indexNumber].[fileType]"))
+
+```
+
+
+In this template, [experiment#] is an arbitrary index which allows for multiple of the same file type to be saved. <b>Information on what distinguishes different file index numbers from each other must be included in your README.</b> 
+
+So, if you've produced a transcriptome of an aster leafhopper population under heat stress, you might name your file:
+
+```{r directory-structure4,include=TRUE,echo=FALSE}
+cat(paste("Hoffman_09272024_2.fastq"))
+
+```
+
+README files should be named as follows:
+
+```{r directory-structure5,include=TRUE,echo=FALSE}
+cat(paste("[lastName]_[dateCreated]_[experiment#]_README.txt"))
+
+```
+
+Notice that the number in your README file name should correspond to the experiment# of the subfolder to which your README corresponds, not to the index number of any of the files which your README will describe. Markdown file format (.md) is also an appropriate filetype for your README. To learn about writing in markdown, please consult this <a href="https://medium.com/@itsjzt/beginner-guide-to-markdown-229adce30074" target="_blank">guide</a>.
+
+# What is the minimum information which I should record in a README?
+
+Please consult <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/readmeGuide.html">this INSITE README guide</a> for information on writing READMEs.

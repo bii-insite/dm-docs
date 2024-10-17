@@ -1,0 +1,117 @@
+---
+title: "INSITE Coding Best Practices"
+author: "Nick Hoffman"
+date: "September 2024"
+output:
+  html_document:
+    df_print: paged
+    highlight: pygment
+    keep_md: no
+    toc: true
+    number_sections: true
+    toc_depth: 1
+    toc_float: true
+    theme: journal
+editor_options:
+    chunk_output_type: inline
+---
+
+<style type="text/css">
+h2, h3, h4, h5, h6 {
+  counter-reset: section;
+}
+p {
+  font-size:18px;
+}
+
+ul {
+  font-size:18px;
+}
+
+li {
+  font-size:18px;
+}
+table {
+   padding: 0;border-collapse: collapse;
+   layout: fixed;
+   width: 90%; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+.html-widget {
+    margin: auto;
+}
+</style>
+
+---
+
+```{r, results='asis', echo = F}
+toc_depth <- rmarkdown::metadata$output$html_document$toc_depth
+sel <- paste0("h",(toc_depth+1):10, collapse = " > span, ")
+cat(paste0("<style>",
+           sel, 
+           " > .header-section-number { display: none; } </style>"))
+```
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Introduction
+
+This is a guide for INSITE users on how to write code that optimizes (re)usability. This guide was adapted from guidelines provided by the <a href="https://github.com/UofABioinformaticsHub/BestPractices" target="_blank">University of Adelaide Bioinformatics Research Hub</a>, and the Software Carpentry Module on <a href="https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R.html" target="_blank">Best Practices for Writing R code</a>.
+
+## Why follow these guidelines?
+
+INSITE is a collaborative project. In order to facilitate sharing of scripts and knowledge, you should adhere to standards that make code easy to understand. Making code easy to understand increases the reusability of that code, which has an incremental effect in generally accelerating the pace of scientific discovery. Also, making code easy to understand provides a benefit to your future self. You may forget in the future tacit knowledge about the operation of your code which you once held. It therefore benefits you personally to make your coding practice as transparent, explicit, and meaningful as you can. 
+
+# Write to be understood
+
+## Variable names
+
+1. Variable names should be meaningful. It may take a few extra letters to spell out <mark>alf_genome</mark>, rather than <mark>ag</mark>, but the increase in transparency is worth it.
+
+2. Arbitrary indexing of variables (e.g., <mark>bam1</mark> and <mark>bam2</mark>) should be avoided. Instead, tell us what distinguishes these objects.
+
+3. Use consistent naming conventions. For example, end all matrix objects with <mark>_mat</mark>.
+
+## Large-scale structuring
+
+1. Organize into meaningful sections. You can use the comment symbol for whichever language you're writing in (e.g., # for R) in order to visually delineate distinct sections in your script. Clearly outlining the large-scale structure of your script makes it more comprehensible for new readers, and makes troubleshooting errors easier too.
+
+2. Keep your code modular. Each section of your code should take an input and produce an output. The output may then become an input for the next section.  The sequence of your code should mirror the sequence of the computational logic.
+
+3. Don't repeat yourself. If you are hard-coding the same item repeatedly on a series of inputs, you may choose instead to loop through those inputs in a single loop.
+
+4. Keep any files on which your script depends in the same directory as the script, and use relative paths to access them, rather than absolute paths. If you use an absolute path (e.g., <mark>/Users/Nick/Desktop/INSITE/Leafhoppers/Hoffman_092724_2.fastq</mark>), and send someone your script, they would have to go in and change all the file paths in order to use the script. Relative paths (e.g., <mark>/differentialExpressionPipeline/dataFiles/Hoffman_0927244_2.fastq</mark>) enhance interoperability.
+
+## Commenting out code
+
+1. Ideally, one's code should be written so transparently that extensive commenting is unnecessary. However, you should comment out your code generously, so someone with little context or experience in the work you've been doing is still able to follow along.
+
+2. Provide more context in your code than you might otherwise think is necessary. You know that your datasets come from a particular set of temperatures, but your reader may not. Think about including that information in your comments.
+
+## A manifest
+
+1. You can choose to start your script with an annotated description of the what the code does, as well as an author history. That is, there should be a living description of the multiple authors who contributed to the script, what contributions they made, and when they made them. Or else, you can put this information in a manifest, which is a metadata file for computational scripts. In a big organization like INSITE, scripts may outlive people, and it's important to properly attribute work, as well as to know who to reach out to in case questions arise.
+
+2. Your manifest should also explicitly name all the software packages (as well as their versions, to ensure compatibility) which your script depends on.
+
+Happy coding !

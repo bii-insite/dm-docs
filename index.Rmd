@@ -1,0 +1,79 @@
+---
+title: "INSITE Data Management Documentation"
+author: "Nick Hoffman"
+date: "September 2024"
+output:
+  html_document:
+    df_print: paged
+    highlight: pygment
+    keep_md: no
+    theme: journal
+editor_options:
+    chunk_output_type: inline
+---
+
+<style type="text/css">
+h2, h3, h4, h5, h6 {
+  counter-reset: section;
+}
+p {
+  font-size:18px;
+}
+
+ul {
+  font-size:18px;
+}
+
+li {
+  font-size:18px;
+}
+table {
+   padding: 0;border-collapse: collapse;
+   layout: fixed;
+   width: 90%; }
+table tr {
+   border-top: 1px solid #cccccc;
+   background-color: white;
+   margin: 0;
+   padding: 0; }
+table tr:nth-child(2n) {
+   background-color: #f8f8f8; }
+table tr th {
+   font-weight: bold;
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr td {
+   border: 1px solid #cccccc;
+   margin: 0;
+   padding: 6px 13px; }
+table tr th :first-child, table tr td :first-child {
+   margin-top: 0; }
+table tr th :last-child, table tr td :last-child {
+   margin-bottom: 0; }
+.html-widget {
+    margin: auto;
+}
+
+div #header {
+    position: relative;
+    left: 15vw;
+
+}
+</style>
+
+---
+<div style="position:relative; float:left; left: 2vw; z-index: 99; width:11vw;height: 500px;">
+<img src="images/insiteLogo.png" >  
+</div>
+
+<div style="position:relative; left: 4vw; z-index: 99;">
+Here you can find links to all documentation for INSITE's data management practices. If you have any questions, please contact INSITE data manager Nick Hoffman at nicholashoffman@ucmerced.edu.
+
+<h1>Data Management Guides</h1>  
+    
+* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/insiteServerGuidelines.html">Server Guidelines</a>
+* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/readmeGuide.html">README Guide</a>
+* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/rsyncGuide.html">rsync Guide</a>
+* <a target="_blank" href="https://hoffmanick.github.io/insiteDocs/codingBestPractices.html">Coding Best Practices</a>
+</div>
